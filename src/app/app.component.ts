@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
       return {
         levelnumber: i1 + 1,
         levelData: y.map((d2, i2) => {
-          let a = [2, 2, 5];
+          let a = [2, 2,2,2, 5];
           return {
             slot: {
               slotnumber: this.genRand(2),
