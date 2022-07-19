@@ -23,8 +23,9 @@ export class AppComponent implements OnInit {
     }, 0);
   }
   change() {
-    this.x = Array(this.getNumber(3, 20)).fill(1);
-    this.y = Array(this.getNumber(3, 20)).fill(1);
+    let c1 = this.getNumber(5, 20);
+    this.x = Array(this.getNumber(5, 20)).fill(1);
+    this.y = Array(this.getNumber(5, 20)).fill(1);
     this.sub.next([this.x, this.y]);
   }
 
