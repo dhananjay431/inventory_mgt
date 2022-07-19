@@ -12,22 +12,24 @@ export class AppComponent implements OnInit {
 
   data: any = '';
   sub = new Subject();
+  x: any;
+  y: any;
   ngOnInit() {
     let that = this;
-    this.data = this.sub.pipe(
-      map((d) => {
-        let dt = this.generag();
-        console.log(dt);
-        return dt;
-      })
-    );
+    this.data = this.sub.pipe(map((d) => this.generag(d[0], d[1])));
 
     setTimeout(() => {
       that.change();
     }, 0);
   }
   change() {
-    this.sub.next(1);
+    this.x = Array(this.getNumber(3, 20)).fill(1);
+    this.y = Array(this.getNumber(3, 20)).fill(1);
+    this.sub.next([this.x, this.y]);
+  }
+
+  change_status() {
+    this.sub.next([this.x, this.y]);
   }
   genRand = (len) => {
     return Math.random()
@@ -42,9 +44,7 @@ export class AppComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
-  generag() {
-    var x = Array(this.getNumber(3, 10)).fill(1);
-    var y = Array(this.getNumber(3, 10)).fill(1);
+  generag(x, y) {
     let Level = x.map((d1, i1) => {
       return {
         levelnumber: i1 + 1,

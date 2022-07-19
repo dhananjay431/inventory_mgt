@@ -1,15 +1,26 @@
 <button (click)="change()">click</button>
-
+<button (click)="change_status()">status</button>
 <div *ngIf="data | async as d">
   <!-- {{ oa(d).row.Level | json }} -->
   <table>
     <tr *ngFor="let l1 of oa(d).row.Level">
       <td
         *ngFor="let l2 of l1.levelData"
-        [class]="{ green: l2.slot.status == 1, red: l2.slot.status == 0 }"
-        [title]="l2.slot.desc"
+        [title]="
+          l2.slot.desc +
+          '_' +
+          l2.slot.seq +
+          '_' +
+          l2.slot.slotnumber +
+          '_' +
+          l2.slot.status
+        "
       >
-        {{ l2.slot.desc }}
+        <i
+          class="fa-solid fa-square"
+          [class]="{ green: l2.slot.status == 1, red: l2.slot.status == 0 }"
+        ></i>
+        <!-- {{ l2.slot.desc }} -->
       </td>
     </tr>
   </table>
