@@ -50,11 +50,13 @@ export class AppComponent implements OnInit {
       return {
         levelnumber: i1 + 1,
         levelData: y.map((d2, i2) => {
+          let a = [2, 2, 5];
           return {
             slot: {
               slotnumber: this.genRand(2),
               seq: i2 + 1,
-              status: Math.floor(Math.random() * 100) % 2 === 0 ? 1 : 0,
+              // status: Math.floor(Math.random() * 100) % 2 === 0 ? 1 : 0,
+              status: a[Math.floor(Math.random() * a.length)] % 2 === 0 ? 1 : 0,
               desc: this.genRand(4),
             },
           };
