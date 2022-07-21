@@ -1,0 +1,4 @@
+/* Add application styles & imports to this file! */
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-primary);
+}

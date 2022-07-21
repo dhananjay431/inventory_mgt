@@ -1,0 +1,107 @@
+<div class="container-fluid mt-1">
+  <div class="row">
+    <div class="col-md-2">
+      <select
+        class="form-select form-select-sm"
+        aria-label="Select Warehouse Code"
+      >
+        <option selected>Select Warehouse Code</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select class="form-select form-select-sm" aria-label="Select Zone">
+        <option selected>Select Zone</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select class="form-select form-select-sm" aria-label="Select Area">
+        <option selected>Select Area</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select class="form-select form-select-sm" aria-label="Select Row">
+        <option selected>Select Row</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <button
+        type="button"
+        class="btn btn-sm btn-primary me-1"
+        (click)="change()"
+      >
+        Search
+      </button>
+      <button
+        type="button"
+        class="btn btn-sm btn-primary"
+        (click)="change_status()"
+      >
+        Next
+      </button>
+    </div>
+
+    <div *ngIf="data | async as d" class="col-12">
+      <!-- {{ oa(d).row.Level | json }} -->
+      <!--    <table class="m-auto">-->
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th
+              [attr.colspan]="oa(d).row.Level[0].levelData.length"
+              class="text-center"
+            >
+              Row No : {{ oa(d).row.rownumber }}
+            </th>
+          </tr>
+          <tr>
+            <th
+              [attr.colspan]="oa(d).row.Level[0].levelData.length"
+              class="text-center"
+            >
+              Bin No
+            </th>
+          </tr>
+        </thead>
+
+        <tr *ngFor="let l1 of oa(d).row.Level">
+          <td *ngFor="let l2 of l1.levelData">
+            <!--          <i-->
+            <!--            data-bs-toggle="tooltip"-->
+            <!--            data-bs-placement="top"-->
+            <!--            data-bs-custom-class="custom-tooltip"-->
+            <!--            data-bs-html="true"-->
+            <!--            [attr.data-bs-title]="htm(l2.slot)"-->
+            <!--            class="fa-solid fa-square"-->
+            <!--            [class]="{ green: l2.slot.status == 1, red: l2.slot.status == 0 }"-->
+            <!--          ></i>-->
+
+            <!--            data-bs-toggle="tooltip"-->
+            <!--              data-bs-placement="top"-->
+            <!--              data-bs-custom-class="custom-tooltip"-->
+            <!--              data-bs-html="true"-->
+            <!--              [attr.data-bs-title]="htm(l2.slot)"-->
+            <div
+              [class]="{ green: l2.slot.status == 1, red: l2.slot.status == 0 }"
+              class="green_red text-center"
+            >
+              {{ l2.slot.desc }}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!--  -->
+  </div>
+</div>
