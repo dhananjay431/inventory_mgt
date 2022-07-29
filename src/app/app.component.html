@@ -1,6 +1,6 @@
 <div class="container-fluid mt-1">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-lg-2 col-12">
       <select
         class="form-select form-select-sm"
         aria-label="Select Warehouse Code"
@@ -11,7 +11,7 @@
         <option value="3">Three</option>
       </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2 col-12">
       <select class="form-select form-select-sm" aria-label="Select Zone">
         <option selected>Select Zone</option>
         <option value="1">One</option>
@@ -19,7 +19,7 @@
         <option value="3">Three</option>
       </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2 col-12">
       <select class="form-select form-select-sm" aria-label="Select Area">
         <option selected>Select Area</option>
         <option value="1">One</option>
@@ -27,7 +27,7 @@
         <option value="3">Three</option>
       </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-lg-2 col-12">
       <select class="form-select form-select-sm" aria-label="Select Row">
         <option selected>Select Row</option>
         <option value="1">One</option>
@@ -35,7 +35,7 @@
         <option value="3">Three</option>
       </select>
     </div>
-    <div class="col-md-4">
+    <div class="col-lg-4 col-12">
       <button
         type="button"
         class="btn btn-sm btn-primary me-1"
@@ -52,7 +52,7 @@
       </button>
     </div>
 
-    <div *ngIf="data | async as d" class="col-12">
+    <div *ngIf="data | async as d" class="col-12 table-responsive">
       <!-- {{ oa(d).row.Level | json }} -->
       <!--    <table class="m-auto">-->
       <table class="table table-sm table-striped">
